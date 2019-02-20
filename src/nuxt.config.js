@@ -1,6 +1,7 @@
 const pkg = require("./package");
 
 module.exports = {
+  buildDir: "../functions/nuxt",
   mode: "universal",
 
   /*
@@ -36,12 +37,26 @@ module.exports = {
    */
   modules: [],
 
+  //Compile for older browsers
+  babel: {
+    presets: ["es2015", "stage-0"],
+    plugins: [
+      [
+        "transform-runtime",
+        {
+          polyfill: true,
+          regenerator: true
+        }
+      ]
+    ]
+  },
+
   /*
    ** Build configuration
    */
   build: {
     publicPath: "/public/",
-    vendor: ["axios"],
+    vendor: ["axios", "babel-polyfill"],
     extractCSS: true,
     /*
      ** You can extend webpack config here
