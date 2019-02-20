@@ -55,7 +55,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    publicPath: "/public/",
+    publicPath: "/",
     vendor: ["axios", "babel-polyfill"],
     extractCSS: true,
     /*
